@@ -81,4 +81,14 @@ Aggretary::Application.configure do
   # required for heroku
   # set localhost to actual host name
   config.action_mailer.default_url_options = { host: 'http://aggretary.herokuapp.com/' }
+
+  # sets paperclip to upload images to Amazon S3
+  config.paperclip_defaults = {
+  :storage => :s3,
+  :s3_credentials => {
+    :bucket => ENV['AWS_BUCKET'],
+    :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
+    :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
+  }
+}
 end
