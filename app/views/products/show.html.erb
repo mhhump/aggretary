@@ -1,0 +1,23 @@
+<%= link_to 'Back', products_path %>
+
+<div class="row">
+  <div class="col-md-offset-2 col-md-8">
+    <div class="panel panel-default">
+      <div class="panel-heading center">
+        <%= image_tag @product.image.url(:medium) %>
+      </div>
+      <div class="panel-body">
+        <p><%= @product.description %></p>
+        <p><strong><%= @product.user.name if @product.user %></strong></p>
+
+        <% if @product.user == current_user %>
+		      <%= link_to edit_product_path(@product) do %>
+		        <span class="glyphicon glyphicon-edit"></span>
+		        Edit
+		      <% end %>
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+</div>

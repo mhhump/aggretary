@@ -1,0 +1,29 @@
+<%= render 'pages/home' unless user_signed_in? %>
+
+<div id="products" class="transitions-enabled">
+  <% @products.each do |product| %>
+    <div class="box panel panel-default">
+      <%= link_to image_tag(product.image.url(:medium)), product %>
+      <div class="panel-body">
+        <%= product.description %><br/>
+        <strong><%= product.user.name if product.user %></strong>
+        <% if product.user == current_user %>
+          <div class="actions">
+            <%= link_to edit_product_path(product) do %>
+              <span class="glyphicon glyphicon-edit"></span>
+              Edit
+            <% end %>
+            <%= link_to product, method: :delete, data: { confirm: 'Are you sure?' } do %>
+              <span class="glyphicon glyphicon-trash"></span>
+              Delete
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<div class="center">
+   <%= will_paginate @posts, renderer: BootstrapPagination::Rails %>
+</div>
