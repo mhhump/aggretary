@@ -7,7 +7,7 @@
         <%= image_tag @door.image.url(:medium) %>
       </div>
       <div class="panel-body">
-        <p><%= @door.description %></p>
+        <p><%= @door.name %></p>
         <p><strong><%= @door.user.name if @door.user %></strong></p>
 
         <% if @door.user == current_user %>

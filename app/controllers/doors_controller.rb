@@ -52,6 +52,6 @@ class DoorsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def door_params
-      params.require(:door).permit(:description, :image)
+      params.require(:door).permit(:name, :image)
     end
 end
