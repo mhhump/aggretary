@@ -22,10 +22,33 @@
   </div>
 
   <div class="form-group">
-    <%= radio_button_tag(:measurefrom, "Door") %>
-    <%= label_tag(:mdoor, "Measurements taken from Door") %>
-    <%= radio_button_tag(:measurefrom, "Frame") %>
-    <%= label_tag(:mframe, "Measurements taken from Frame") %>
+    <%= f.label :Measurements_Taken_From %>
+    <%= select_tag(:measurefrom_id, options_for_select([['Door', 1], ['Frame', 2]], 2)) %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :frame_material %>
+    <%= select_tag(:framematerial_id, options_for_select([['Aluminum', 1], ['Hollow Metal', 2], ['Wood', 3]], 2)) %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :door_material %>
+    <%= select_tag(:doormaterial_id, options_for_select([['Aluminum', 1], ['Hollow Metal', 2], ['Wood', 3]], 2)) %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :location %>
+    <%= select_tag(:location_id, options_for_select([['Interior', 1], ['Exterior', 2]], 2)) %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :swing %>
+    <%= select_tag(:swing_id, options_for_select([['LH', 1], ['LHR', 2], ['RH', 3], ['RHR', 4], ['LHA', 5], ['LHRA', 6], ['RHA', 7], ['RHRA', 8]], 1)) %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :fire_rating %>
+    <%= select_tag(:firerating_id, options_for_select([['None', 1], ['20 min', 2], ['45 min', 3], ['60 min', 4], ['90 min', 5], ['3 hr', 6]], 1)) %>
   </div>
 
   <div class="form-group">
