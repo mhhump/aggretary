@@ -1,5 +1,7 @@
 Aggretary::Application.routes.draw do
 
+  resources :doors
+
   resources :categories
   resources :products
   resources :pins
