@@ -20,7 +20,16 @@
     <%= f.label :name %>
     <%= f.text_field :name, class: "form-control" %>
   </div>
+
+  <div class="form-group">
+    <%= radio_button_tag(:measurefrom, "Door") %>
+    <%= label_tag(:mdoor, "Measurements taken from Door") %>
+    <%= radio_button_tag(:measurefrom, "Frame") %>
+    <%= label_tag(:mframe, "Measurements taken from Frame") %>
+  </div>
+
   <div class="form-group">
     <%= f.submit class: "btn btn-primary" %>
   </div>
+  
 <% end %>

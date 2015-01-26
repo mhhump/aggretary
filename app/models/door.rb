@@ -4,5 +4,5 @@ class Door < ActiveRecord::Base
 	validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png"]
 
   validates :image, presence: true
-  validates :description, presence: true
+  validates :name, presence: true
 end
