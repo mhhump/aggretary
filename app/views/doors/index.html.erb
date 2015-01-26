@@ -1,27 +1,29 @@
-<h1>Listing doors</h1>
+<%= render 'pages/home' unless user_signed_in? %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+<div id="doors" class="transitions-enabled">
+  <% @doors.each do |door| %>
+    <div class="box panel panel-default">
+      <%= link_to image_tag(door.image.url(:medium)), door %>
+      <div class="panel-body">
+        <%= door.description %><br/>
+        <strong><%= door.user.name if door.user %></strong>
+        <% if door.user == current_user %>
+          <div class="actions">
+            <%= link_to edit_door_path(door) do %>
+              <span class="glyphicon glyphicon-edit"></span>
+              Edit
+            <% end %>
+            <%= link_to door, method: :delete, data: { confirm: 'Are you sure?' } do %>
+              <span class="glyphicon glyphicon-trash"></span>
+              Delete
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
 
-  <tbody>
-    <% @doors.each do |door| %>
-      <tr>
-        <td><%= door.name %></td>
-        <td><%= link_to 'Show', door %></td>
-        <td><%= link_to 'Edit', edit_door_path(door) %></td>
-        <td><%= link_to 'Destroy', door, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Door', new_door_path %>
+<div class="center">
+   <%= will_paginate @posts, renderer: BootstrapPagination::Rails %>
+</div>

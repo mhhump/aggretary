@@ -1,9 +1,23 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @door.name %>
-</p>
-
-<%= link_to 'Edit', edit_door_path(@door) %> |
 <%= link_to 'Back', doors_path %>
+
+<div class="row">
+  <div class="col-md-offset-2 col-md-8">
+    <div class="panel panel-default">
+      <div class="panel-heading center">
+        <%= image_tag @door.image.url(:medium) %>
+      </div>
+      <div class="panel-body">
+        <p><%= @door.description %></p>
+        <p><strong><%= @door.user.name if @door.user %></strong></p>
+
+        <% if @door.user == current_user %>
+		      <%= link_to edit_door_path(@door) do %>
+		        <span class="glyphicon glyphicon-edit"></span>
+		        Edit
+		      <% end %>
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+</div>
