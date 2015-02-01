@@ -9,5 +9,7 @@ class User < ActiveRecord::Base
   has_many :pins
   has_many :products
 
+  accepts_nested_attributes_for :doors, :allow_destroy => true
+
   validates :name, presence: true
 end

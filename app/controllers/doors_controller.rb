@@ -39,6 +39,8 @@ class DoorsController < ApplicationController
     redirect_to doors_url
   end
 
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_door
@@ -52,6 +54,6 @@ class DoorsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def door_params
-      params.require(:door).permit(:name, :image)
+      params.require(:door).permit(:name, :image, :measure_from, :frame_material, :door_material, :location, :swing, :fire_rating)
     end
 end

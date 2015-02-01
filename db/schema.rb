@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150126160943) do
+ActiveRecord::Schema.define(version: 20150130205143) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
@@ -28,6 +28,16 @@ ActiveRecord::Schema.define(version: 20150126160943) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.string   "measure_from"
+    t.string   "frame_material"
+    t.string   "door_material"
+    t.string   "location"
+    t.string   "swing"
+    t.string   "fire_rating"
+    t.string   "lock_prep"
+    t.string   "deadbolt_prep"
+    t.string   "lite_kit"
+    t.string   "louver"
   end
 
   add_index "doors", ["user_id"], name: "index_doors_on_user_id"

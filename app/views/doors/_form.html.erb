@@ -29,33 +29,33 @@
   </div>
 
   <div class="form-group">
-    <%= f.label :Measurements_Taken_From %>
-    <%= select_tag(:measurefrom_id, options_for_select([['Door', 1], ['Frame', 2]], 2)) %>
+    <%= f.label :measure_from, "Measure From" %>
+    <%= f.select :measure_from, [['Door', :door], ['Frame', :frame]] %>
   </div>
 
   <div class="form-group">
-    <%= f.label :frame_material %>
-    <%= select_tag(:framematerial_id, options_for_select([['Aluminum', 1], ['Hollow Metal', 2], ['Wood', 3]], 2)) %>
+    <%= f.label :frame_material, "Frame Material" %>
+    <%= f.select :frame_material, [['Aluminum', :aluminum], ['Hollow Metal', :"hollow metal"], ['Wood', :wood]] %>
   </div>
 
   <div class="form-group">
     <%= f.label :door_material %>
-    <%= select_tag(:doormaterial_id, options_for_select([['Aluminum', 1], ['Hollow Metal', 2], ['Wood', 3]], 2)) %>
+    <%= f.select :door_material, [['Aluminum', :aluminum], ['Hollow Metal', :"hollow metal"], ['Wood', :wood]] %>
   </div>
 
   <div class="form-group">
     <%= f.label :location %>
-    <%= select_tag(:location_id, options_for_select([['Interior', 1], ['Exterior', 2]], 2)) %>
+    <%= f.select :location, [['Interior', :interior], ['Exterior', :exterior]] %>
   </div>
 
   <div class="form-group">
     <%= f.label :swing %>
-    <%= select_tag(:swing_id, options_for_select([['LH', 1], ['LHR', 2], ['RH', 3], ['RHR', 4], ['LHA', 5], ['LHRA', 6], ['RHA', 7], ['RHRA', 8]], 1)) %>
+    <%= f.select :swing, [['LH', :LH], ['LHR', :LHR], ['RH', :RH], ['RHR', :RHR], ['LHA', :LHA], ['LHRA', :LHRA], ['RHA', :RHA], ['RHRA', :RHRA]] %>
   </div>
 
   <div class="form-group">
     <%= f.label :fire_rating %>
-    <%= select_tag(:firerating_id, options_for_select([['None', 1], ['20 min', 2], ['45 min', 3], ['60 min', 4], ['90 min', 5], ['3 hr', 6]], 1)) %>
+    <%= f.select :fire_rating, [['None', :none], ['20 min', :"20 min"], ['45 min', :"45 min"], ['60 min', :"60 min"], ['90 min', :"90 min"], ['3 hr', :"3 hr"]] %>
   </div>
 
   <div class="form-group">

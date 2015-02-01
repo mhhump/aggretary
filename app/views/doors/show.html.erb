@@ -8,6 +8,19 @@
       </div>
       <div class="panel-body">
         <p><%= @door.name %></p>
+        <p><strong>Measure From:</strong>
+        <%= @door.measure_from.capitalize %></p>
+        <p><strong>Frame Material:</strong>
+        <%= @door.frame_material.capitalize %></p>
+        <p><strong>Door Material:</strong>
+        <%= @door.door_material.capitalize %></p>
+        <p><strong>Location:</strong>
+        <%= @door.location.capitalize %></p>
+        <p><strong>Swing:</strong>
+        <%= @door.swing.upcase %></p>
+        <p><strong>Fire Rating:</strong>
+        <%= @door.fire_rating.capitalize %></p>
+        
         <p><strong><%= @door.user.name if @door.user %></strong></p>
 
         <% if @door.user == current_user %>
