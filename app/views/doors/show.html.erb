@@ -5,8 +5,9 @@
     <div class="panel panel-default">
       <div class="panel-heading center">
         <%= image_tag @door.image.url(:medium) %>
-      </div>
-      <div class="panel-body">
+      </div> 
+        <div class="panel-body">
+          <ol>
         <p><%= @door.name %></p>
         <p><strong>Measure From:</strong>
         <%= @door.measure_from.capitalize %></p>
@@ -53,6 +54,8 @@
         <p><strong>K:</strong>
         <%= @door.dim_k %></p>
 
+      </ol>
+
         
         <p><strong><%= @door.user.name if @door.user %></strong></p>
 
@@ -67,3 +70,4 @@
     </div>
   </div>
 </div>
+
