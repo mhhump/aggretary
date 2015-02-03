@@ -12,134 +12,152 @@
   <% end %>
 
 
-  <div class="center">
-    <div class="panel-heading center">
+
+<div class="row">
+
+  <div class="col-sm-8 col-sm-push-4 col-md-8 col-md-push-4">
+    <div class="panel-body">
       <%= image_tag("defaultdoor.png", size: "450x450", :alt => "replacement door") %>
     </div>
   </div>
 
-  <div class="form-group">
-    <%= f.label :image %>
-    <%= f.file_field :image, class: "form-control" %>
+  <div class="col-sm-4 col-sm-pull-8 col-md-4 col-md-pull-8">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        
+        <div class="form-group">
+          <%= f.label :image %>
+          <%= f.file_field :image, class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :name %>
+          <%= f.text_field :name, class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :measure_from, "Measure From" %>
+          <%= f.select :measure_from, [['Door', :door], ['Frame', :frame]] %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :frame_material, "Frame Material" %>
+          <%= f.select :frame_material, [['Aluminum', :aluminum], ['Hollow Metal', :"hollow metal"], ['Wood', :wood]] %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :door_material %>
+          <%= f.select :door_material, [['Aluminum', :aluminum], ['Hollow Metal', :"hollow metal"], ['Wood', :wood]] %>
+        </div>
+
+
+        <div class="form-group">
+          <%= f.label :location %>
+          <%= f.select :location, [['Interior', :interior], ['Exterior', :exterior]] %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :swing %>
+          <%= f.select :swing, [['LH', :LH], ['LHR', :LHR], ['RH', :RH], ['RHR', :RHR], ['LHA', :LHA], ['LHRA', :LHRA], ['RHA', :RHA], ['RHRA', :RHRA]] %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :fire_rating %>
+          <%= f.select :fire_rating, [['None', :none], ['20 min', :"20 min"], ['45 min', :"45 min"], ['60 min', :"60 min"], ['90 min', :"90 min"], ['3 hr', :"3 hr"]] %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :lock_prep %>
+          <%= f.select :lock_prep, [['None', :none], ['Cylindrical', :cylindrical], ['Mortise', :mortise], ['Rim Exit Device', :"rim exit device"], ['Mortise Exit Device', :"mortise exit device"]] %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :deadbolt_prep %>
+          <%= f.select :deadbolt_prep, [['None', :none], ['Cylindrical', :cylindrical], ['Mortise', :mortise]] %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :lite_kit %>
+          <%= f.select :lite_kit, [['None', :none], ['Narrow Lite', :"narrow lite"], ['Half Lite', :"half lite"], ['Full Lite', :"full lite"]] %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :louver %>
+          <%= f.select :louver, [['None', :none], ['Louver', :louver]] %>
+        </div>
+
+
+        <div class="form-group">
+          <%= f.label :a %>
+          <%= f.text_field :dim_a %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :b %>
+          <%= f.text_field :dim_b %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :c %>
+          <%= f.text_field :dim_c %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :d %>
+          <%= f.text_field :dim_d %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :e %>
+          <%= f.text_field :dim_e %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :f %>
+          <%= f.text_field :dim_f %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :g %>
+          <%= f.text_field :dim_g %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :h %>
+          <%= f.text_field :dim_h %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :i %>
+          <%= f.text_field :dim_i %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :j %>
+          <%= f.text_field :dim_j %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :k %>
+          <%= f.text_field :dim_k %>
+        </div>
+
+
+        <div class="form-group"> 
+          <%= f.label :other_comments %>
+          <%= f.text_area :other_comments, class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.submit class: "btn btn-primary" %>
+        </div>
+
+      </div>
+    </div>
   </div>
-
-  <div class="form-group">
-    <%= f.label :name %>
-    <%= f.text_field :name, class: "form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :measure_from, "Measure From" %>
-    <%= f.select :measure_from, [['Door', :door], ['Frame', :frame]] %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :frame_material, "Frame Material" %>
-    <%= f.select :frame_material, [['Aluminum', :aluminum], ['Hollow Metal', :"hollow metal"], ['Wood', :wood]] %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :door_material %>
-    <%= f.select :door_material, [['Aluminum', :aluminum], ['Hollow Metal', :"hollow metal"], ['Wood', :wood]] %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :location %>
-    <%= f.select :location, [['Interior', :interior], ['Exterior', :exterior]] %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :swing %>
-    <%= f.select :swing, [['LH', :LH], ['LHR', :LHR], ['RH', :RH], ['RHR', :RHR], ['LHA', :LHA], ['LHRA', :LHRA], ['RHA', :RHA], ['RHRA', :RHRA]] %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :fire_rating %>
-    <%= f.select :fire_rating, [['None', :none], ['20 min', :"20 min"], ['45 min', :"45 min"], ['60 min', :"60 min"], ['90 min', :"90 min"], ['3 hr', :"3 hr"]] %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :lock_prep %>
-    <%= f.select :lock_prep, [['None', :none], ['Cylindrical', :cylindrical], ['Mortise', :mortise], ['Rim Exit Device', :"rim exit device"], ['Mortise Exit Device', :"mortise exit device"]] %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :deadbolt_prep %>
-    <%= f.select :deadbolt_prep, [['None', :none], ['Cylindrical', :cylindrical], ['Mortise', :mortise]] %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :lite_kit %>
-    <%= f.select :lite_kit, [['None', :none], ['Narrow Lite', :"narrow lite"], ['Half Lite', :"half lite"], ['Full Lite', :"full lite"]] %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :louver %>
-    <%= f.select :louver, [['None', :none], ['Louver', :louver]] %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :a %>
-    <%= f.text_field :dim_a %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :b %>
-    <%= f.text_field :dim_b %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :c %>
-    <%= f.text_field :dim_c %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :d %>
-    <%= f.text_field :dim_d %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :e %>
-    <%= f.text_field :dim_e %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :f %>
-    <%= f.text_field :dim_f %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :g %>
-    <%= f.text_field :dim_g %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :h %>
-    <%= f.text_field :dim_h %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :i %>
-    <%= f.text_field :dim_i %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :j %>
-    <%= f.text_field :dim_j %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :k %>
-    <%= f.text_field :dim_k %>
-  </div>
-
-
-
-
-  <div class="form-group">
-    <%= f.submit class: "btn btn-primary" %>
-  </div>
-
 
   
+
+</div>
+
 <% end %>
