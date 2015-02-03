@@ -59,6 +59,84 @@
   </div>
 
   <div class="form-group">
+    <%= f.label :lock_prep %>
+    <%= f.select :lock_prep, [['None', :none], ['Cylindrical', :cylindrical], ['Mortise', :mortise], ['Rim Exit Device', :"rim exit device"], ['Mortise Exit Device', :"mortise exit device"]] %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :deadbolt_prep %>
+    <%= f.select :deadbolt_prep, [['None', :none], ['Cylindrical', :cylindrical], ['Mortise', :mortise]] %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :lite_kit %>
+    <%= f.select :lite_kit, [['None', :none], ['Narrow Lite', :"narrow lite"], ['Half Lite', :"half lite"], ['Full Lite', :"full lite"]] %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :louver %>
+    <%= f.select :louver, [['None', :none], ['Louver', :louver]] %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :a %>
+    <%= f.text_field :dim_a %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :b %>
+    <%= f.text_field :dim_b %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :c %>
+    <%= f.text_field :dim_c %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :d %>
+    <%= f.text_field :dim_d %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :e %>
+    <%= f.text_field :dim_e %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :f %>
+    <%= f.text_field :dim_f %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :g %>
+    <%= f.text_field :dim_g %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :h %>
+    <%= f.text_field :dim_h %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :i %>
+    <%= f.text_field :dim_i %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :j %>
+    <%= f.text_field :dim_j %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :k %>
+    <%= f.text_field :dim_k %>
+  </div>
+
+
+
+
+  <div class="form-group">
     <%= f.submit class: "btn btn-primary" %>
   </div>
 

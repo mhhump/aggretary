@@ -54,6 +54,6 @@ class DoorsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def door_params
-      params.require(:door).permit(:name, :image, :measure_from, :frame_material, :door_material, :location, :swing, :fire_rating)
+      params.require(:door).permit(:name, :image, :measure_from, :frame_material, :door_material, :location, :swing, :fire_rating, :lock_prep, :deadbolt_prep, :lite_kit, :louver, :dim_a, :dim_b, :dim_c, :dim_d, :dim_d, :dim_e, :dim_f, :dim_g, :dim_h, :dim_i, :dim_j, :dim_k)
     end
 end

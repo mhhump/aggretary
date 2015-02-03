@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150130205143) do
+ActiveRecord::Schema.define(version: 20150202234838) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
@@ -38,6 +38,17 @@ ActiveRecord::Schema.define(version: 20150130205143) do
     t.string   "deadbolt_prep"
     t.string   "lite_kit"
     t.string   "louver"
+    t.string   "dim_a"
+    t.string   "dim_b"
+    t.string   "dim_c"
+    t.string   "dim_d"
+    t.string   "dim_e"
+    t.string   "dim_f"
+    t.string   "dim_g"
+    t.string   "dim_h"
+    t.string   "dim_i"
+    t.string   "dim_j"
+    t.string   "dim_k"
   end
 
   add_index "doors", ["user_id"], name: "index_doors_on_user_id"
