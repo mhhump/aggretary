@@ -5,9 +5,11 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :doors
+  has_many :projects
+  has_many :doors, through: :projects
   has_many :pins
   has_many :products
+  
 
   accepts_nested_attributes_for :doors, :allow_destroy => true
 
