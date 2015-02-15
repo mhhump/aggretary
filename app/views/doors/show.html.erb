@@ -13,56 +13,13 @@
             <%= @door.measure_from.capitalize %></p>
             <p><strong>Frame Material:</strong>
             <%= @door.frame_material.capitalize %></p>
-            <p><strong>Door Material:</strong>
-            <%= @door.door_material.capitalize %></p>
-            <p><strong>Location:</strong>
-            <%= @door.location.capitalize %></p>
-            <p><strong>Swing:</strong>
-            <%= @door.swing.upcase %></p>
-            <p><strong>Fire Rating:</strong>
-            <%= @door.fire_rating.capitalize %></p>
-            <p><strong>Lock Prep:</strong>
-            <%= @door.lock_prep.capitalize %></p>
-            <p><strong>Deadbolt Prep:</strong>
-            <%= @door.deadbolt_prep.capitalize %></p>
-            <p><strong>Lite Kit:</strong>
-            <%= @door.lite_kit.capitalize %></p>
-            <p><strong>Louver:</strong>
-            <%= @door.louver.capitalize %></p>
-        </ol>
-            <p><strong>Dimensions:</strong>
-        <ol>
-            <p><strong>A:</strong>
-            <%= @door.dim_a %></p>
-            <p><strong>B:</strong>
-            <%= @door.dim_b %></p>
-            <p><strong>C:</strong>
-            <%= @door.dim_c %></p>
-            <p><strong>D:</strong>
-            <%= @door.dim_d %></p>
-            <p><strong>E:</strong>
-            <%= @door.dim_e %></p>
-            <p><strong>F:</strong>
-            <%= @door.dim_f %></p>
-            <p><strong>G:</strong>
-            <%= @door.dim_g %></p>
-            <p><strong>H:</strong>
-            <%= @door.dim_h %></p>
-            <p><strong>I:</strong>
-            <%= @door.dim_i %></p>
-            <p><strong>J:</strong>
-            <%= @door.dim_j %></p>
-            <p><strong>K:</strong>
-            <%= @door.dim_k %></p>
-        </ol>
 
-        <p><strong>Other Comments:</strong>
-            <%= @door.other_comments.capitalize %></p>
+
 
         
-        <p><strong><%= @door.user.name if @door.user %></strong></p>
+        <p><strong><%= @door.project.name if @door.project %></strong></p>
 
-        <% if @door.user == current_user %>
+       <% if @door.project == @door.project %>
 		      <%= link_to edit_door_path(@door) do %>
 		        <span class="glyphicon glyphicon-edit"></span>
 		        Edit

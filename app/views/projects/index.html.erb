@@ -1,27 +1,29 @@
-<h1>Listing projects</h1>
+<%= render 'pages/home' unless user_signed_in? %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+<div id="projects" class="transitions-enabled">
+  <% @projects.each do |project| %>
+    <div class="box panel panel-default">
+      <div class="panel-body">
+        <%= link_to project.name, project %><br/>
+        
+          <div class="actions">
+            <%= link_to edit_project_path(project) do %>
+              <span class="glyphicon glyphicon-edit"></span>
+              Edit
+            <% end %>
+            <%= link_to project, method: :delete, data: { confirm: 'Are you sure?' } do %>
+              <span class="glyphicon glyphicon-trash"></span>
+              Delete
+            <% end %>
+          </div>
+        
+      </div>
+    </div>
+  <% end %>
+</div>
 
-  <tbody>
-    <% @projects.each do |project| %>
-      <tr>
-        <td><%= project.name %></td>
-        <td><%= link_to 'Show', project %></td>
-        <td><%= link_to 'Edit', edit_project_path(project) %></td>
-        <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
+<div class="center">
+   <%= will_paginate @posts, renderer: BootstrapPagination::Rails %>
+</div>
 
 <%= link_to 'New Project', new_project_path %>

@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
   
 
   accepts_nested_attributes_for :doors, :allow_destroy => true
+  accepts_nested_attributes_for :projects, :allow_destroy => true
 
   validates :name, presence: true
 end

@@ -1,16 +1,18 @@
 Aggretary::Application.routes.draw do
 
   resources :projects
-
   resources :doors
+
 
   resources :categories
   resources :products
   resources :pins
 
   devise_for :users
-  root "doors#index"
+
+  root "projects#index"
   get "about" => "pages#about"
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
