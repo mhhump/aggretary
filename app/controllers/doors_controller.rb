@@ -20,7 +20,7 @@ class DoorsController < ApplicationController
   end
 
   def create
-    @door = project.doors.build(door_params)
+    @door = current_user.doors.build(door_params)
     if @door.save
       redirect_to(:action => 'index')
     else
@@ -43,7 +43,6 @@ class DoorsController < ApplicationController
   end
 
 
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_door
@@ -56,8 +55,9 @@ class DoorsController < ApplicationController
     end
 
 
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def door_params
-      params.require(:door).permit(:id, :project_id, :name, :image, :measure_from, :frame_material, :door_material, :location, :swing, :fire_rating, :lock_prep, :deadbolt_prep, :lite_kit, :louver, :dim_a, :dim_b, :dim_c, :dim_d, :dim_d, :dim_e, :dim_f, :dim_g, :dim_h, :dim_i, :dim_j, :dim_k, :other_comments, :species, project_attributes: [ :name, :id, :_destroy ])
+      params.require(:door).permit(:id, :project_id, :name, :image, :measure_from, :frame_material, :door_material, :location, :swing, :fire_rating, :lock_prep, :deadbolt_prep, :lite_kit, :louver, :dim_a, :dim_b, :dim_c, :dim_d, :dim_d, :dim_e, :dim_f, :dim_g, :dim_h, :dim_i, :dim_j, :dim_k, :other_comments, :species, :existing_frame, project_attributes: [ :name, :id, :_destroy ])
     end
 end

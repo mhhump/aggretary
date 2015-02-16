@@ -7,9 +7,12 @@ class Door < ActiveRecord::Base
 
   #validates :image, presence: true
   validates :name, presence: true
+  validates :project_id, presence: true
 
 	accepts_nested_attributes_for :project, :allow_destroy => true
 	accepts_nested_attributes_for :user, :allow_destroy => true
+
+	measure_from = ["door", "frame"]
 
 	 
 end

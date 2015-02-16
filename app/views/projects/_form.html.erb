@@ -19,24 +19,5 @@
     <%= f.submit class: "btn btn-primary" %>
   </div>
 
-    <%= f.fields_for :doors do |door_form| %>
-
-      <%= door_form.hidden_field :project_id %>
-
-      <div class="form-group">
-        <%= door_form.label :name %>
-        <%= door_form.text_field :name, class: "form-control" %>
-      </div>
-
-      <div class="form-group">
-        <%= door_form.label :measure_from, "Measure From" %>
-        <%= door_form.select :measure_from, [['Door', :door], ['Frame', :frame]] %>
-      </div>
-
-      <div class="form-group">
-        <%= door_form.label :frame_material, "Frame Material" %>
-        <%= door_form.select :frame_material, [['Aluminum', :aluminum], ['Hollow Metal', :"hollow metal"], ['Wood', :wood]] %>
-      </div>
-
-      <% end %>
+    
 <% end %>

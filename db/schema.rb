@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150206214150) do
+ActiveRecord::Schema.define(version: 20150216211209) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 20150206214150) do
     t.string   "species"
     t.string   "other_comments"
     t.integer  "project_id"
+    t.string   "existing_frame"
   end
 
   add_index "doors", ["project_id"], name: "index_doors_on_project_id"
