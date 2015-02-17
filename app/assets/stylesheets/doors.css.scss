@@ -21,6 +21,8 @@ ol {
 	-column-count: 2;
 }
 
-.existing_frame_fields{
-	display: none;
+.hidden {
+	display: none !important;
+	visibility: hidden !important;
 }
+

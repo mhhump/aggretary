@@ -40,28 +40,7 @@
           <%= f.select :project_id, Project.all.collect { |x| [x.name, x.id]}, {} %>
         </div>
 
-        <div class="form-group">
-          <%= f.label :existing_frame, "Reuse Existing Frame?" %>
-          <%= f.select :existing_frame, [['No', :no], ['Yes', :yes]] %>
-        </div>
-
-        <script>
-        $(function(){
-          $("#door_existing_frame").change(function(){
-            if ($("#door_existing_frame").val()=="yes"){
-              $("#door_measure_from, #door_frame_material, #door_door_material").fadeIn('slow');
-            } else {
-              $("#door_measure_from, #door_frame_material, #door_door_material").fadeOut('slow');
-            }
-           })
-        })
-        </script>
-
-
-        <div class="form-group" id="door_measure_from">
-          <%= f.label :measure_from, "Measure From" %>
-          <%= f.select :measure_from, [['Door', :door], ['Frame', :frame]] %>
-        </div>
+        
 
         
 
@@ -113,58 +92,81 @@
           <%= f.select :louver, [['None', :none], ['Louver', :louver]] %>
         </div>
 
-
         <div class="form-group">
+          <%= f.label :existing_frame, "Reuse Existing Frame?" %>
+          <%= f.select :existing_frame, [['No', :no], ['Yes', :yes]] %>
+        </div>
+
+        <script>
+        $(function(){
+          $("#door_existing_frame").change(function(){
+            if ($("#door_existing_frame").val()=="yes"){
+              $("#door_measure_from, #door_dim_a, #door_dim_b, #door_dim_c, #door_dim_d, #door_dim_e, #door_dim_f, #door_dim_g, #door_dim_h, #door_dim_i, #door_dim_j, #door_dim_k").fadeIn('slow');
+            } else {
+              $("#door_measure_from, #door_dim_a, #door_dim_b, #door_dim_c, #door_dim_d, #door_dim_e, #door_dim_f, #door_dim_g, #door_dim_h, #door_dim_i, #door_dim_j, #door_dim_k").fadeOut('slow');
+            }
+           })
+        })
+        </script>
+
+
+        <div class="form-group" id="door_measure_from">
+          <%= f.label :measure_from, "Measure From" %>
+          <%= f.select :measure_from, [['Door', :door], ['Frame', :frame]] %>
+        </div>
+
+
+        <div class="form-group" id="door_dim_a">
           <%= f.label :a %>
           <%= f.text_field :dim_a %>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" id="door_dim_b">
           <%= f.label :b %>
           <%= f.text_field :dim_b %>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" id="door_dim_c">
           <%= f.label :c %>
           <%= f.text_field :dim_c %>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" id="door_dim_d">
           <%= f.label :d %>
           <%= f.text_field :dim_d %>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" id="door_dim_e">
           <%= f.label :e %>
           <%= f.text_field :dim_e %>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" id="door_dim_f">
           <%= f.label :f %>
           <%= f.text_field :dim_f %>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" id="door_dim_g">
           <%= f.label :g %>
           <%= f.text_field :dim_g %>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" id="door_dim_h">
           <%= f.label :h %>
           <%= f.text_field :dim_h %>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" id="door_dim_i">
           <%= f.label :i %>
           <%= f.text_field :dim_i %>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" id="door_dim_j">
           <%= f.label :j %>
           <%= f.text_field :dim_j %>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" id="door_dim_k">
           <%= f.label :k %>
           <%= f.text_field :dim_k %>
         </div>
