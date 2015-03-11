@@ -3,16 +3,16 @@
 <div id="doors" class="transitions-enabled">
   <% @doors.each do |door| %>
     <div class="box panel panel-default">
-      <%= link_to image_tag(door.image.url(:medium)), door %>
-      <div class="panel-body">
-        <%= door.name %><br/>
+      <%= link_to project_door_path(@project, door) do %>
+      <%= door.name %>
+      <% end %>
         
           <div class="actions">
-            <%= link_to edit_door_path(door) do %>
+            <%= link_to edit_project_door_path(@project, door) do %>
               <span class="glyphicon glyphicon-edit"></span>
               Edit
             <% end %>
-            <%= link_to door, method: :delete, data: { confirm: 'Are you sure?' } do %>
+            <%= link_to project_door_path(@project, door), method: :delete, data: { confirm: 'Are you sure?' } do %>
               <span class="glyphicon glyphicon-trash"></span>
               Delete
             <% end %>

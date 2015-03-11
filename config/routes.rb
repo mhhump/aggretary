@@ -1,8 +1,8 @@
 Aggretary::Application.routes.draw do
 
-  resources :projects
-  resources :doors
-
+  resources :projects do
+    resources :doors
+  end
 
   resources :categories
   resources :products

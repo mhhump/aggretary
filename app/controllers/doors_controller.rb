@@ -1,26 +1,34 @@
 class DoorsController < ApplicationController
+  before_action :set_project
   before_action :set_door, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
   before_action :correct_user, only: [:edit, :update, :destroy]
   
 
   def index
-   @doors = Door.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 8)
+    @project = Project.find(params[:project_id])
+    @doors = @project.doors.order("created_at DESC").paginate(:page => params[:page], :per_page => 8)
   end
 
   def show
+    @project = Project.find(params[:project_id])
   end
 
   def new
-    @door = current_user.doors.build
+    @project = Project.find(params[:project_id])
+    @door = @project.doors.build
   
   end
 
   def edit
+    @project = Project.find(params[:project_id])
   end
 
   def create
-    @door = current_user.doors.build(door_params)
+    @project = Project.find(params[:project_id])
+    @door = @project.doors.build(door_params)
+    @door.user = current_user
+
     if @door.save
       redirect_to(:action => 'index')
     else
@@ -31,15 +39,16 @@ class DoorsController < ApplicationController
 
   def update
     if @door.update(door_params)
-      redirect_to @door, notice: 'Door was successfully updated.'
+      redirect_to @project, notice: 'Door was successfully updated.'
     else
       render action: 'edit'
     end
   end
 
   def destroy
+    @project = Project.find(params[:project_id])
     @door.destroy
-    redirect_to doors_url
+    redirect_to(:action => 'index')
   end
 
 
@@ -47,6 +56,10 @@ class DoorsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_door
       @door = Door.find(params[:id])
+    end
+
+    def set_project
+      @project = Project.find(params[:project_id])
     end
 
     def correct_user
