@@ -1,0 +1,182 @@
+<%= form_for [@project, @opening], html: { multipart: true } do |f| %>
+  <% if @opening.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@opening.errors.count, "error") %> prohibited this opening from being saved:</h2>
+
+      <ul>
+      <% @opening.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+
+<div class="row">
+
+  
+  <div class="col-md-8 col-md-push-4">
+    
+  </div>
+
+  <div class="col-md-4 col-md-pull-8">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        
+
+        <div class="form-group">
+          <%= f.label :number %>
+          <%= f.text_field :number, class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :project_id, "Project" %>
+          <%= f.collection_select :project_id, Project.all, :id, :name, class: "form-control" %>
+        </div>
+
+        <div class="form-group" id="opening_location">
+          <%= f.label :location %>
+          <%= f.select :location, Opening::LOCATION_OPTIONS %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :swing %>
+          <%= f.select :swing, Opening::SWING_OPTIONS %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :fire_rating %>
+          <%= f.select :fire_rating, Opening::FIRE_RATING_OPTIONS %>
+        </div>
+
+
+        <%= f.fields_for :doors do |d| %>
+          <div class="form-group">
+            <%= d.label :door_material %>
+            <%= d.select :door_material, Door::DOOR_MATERIAL_OPTIONS, class: "form-control" %>
+          </div>
+
+          <div class="form-group">
+            <%= d.label :lock_prep %>
+            <%= d.select :lock_prep, Door::LOCK_PREP_OPTIONS %>
+          </div>
+
+          <div class="form-group">
+            <%= d.label :deadbolt_prep %>
+            <%= d.select :deadbolt_prep, Door::DEADBOLT_PREP_OPTIONS %>
+          </div>
+
+          <div class="form-group">
+            <%= d.label :lite_kit %>
+            <%= d.select :lite_kit, Door::LITE_KIT_OPTIONS %>
+          </div>
+
+          <div class="form-group">
+            <%= d.label :louver %>
+            <%= d.select :louver, Door::LOUVER_OPTIONS %>
+          </div>
+
+          <div class="form-group">
+          <button type="button" class="btn btn-info btn-sm" data-toggle="#reuseFrame, #reuseFrameImage">Reuse Existing Frame?</button>
+          </div>
+
+
+          <div id="reuseFrameImage" style="display: none">
+            <div class="panel-body" id="replacement_door_image">
+              <%= image_tag("defaultdoor.png", class: "img-responsive", :alt => "replacement door") %>
+            </div>
+          </div>
+
+
+          <div id="reuseFrame" style="display: none">
+            <div class="form-group" id="door_measure_from">
+              <%= d.label :measure_from, "Measure From" %>
+              <%= d.select :measure_from, Door::MEASURE_FROM_OPTIONS %>
+            </div>
+
+
+          <div class="form-group" id="door_dim_a">
+            <%= d.label :a %>
+            <%= d.text_field :dim_a %>
+          </div>
+
+          <div class="form-group" id="door_dim_b">
+            <%= d.label :b %>
+            <%= d.text_field :dim_b %>
+          </div>
+
+          <div class="form-group" id="door_dim_c">
+            <%= d.label :c %>
+            <%= d.text_field :dim_c %>
+          </div>
+
+          <div class="form-group" id="door_dim_d">
+            <%= d.label :d %>
+            <%= d.text_field :dim_d %>
+          </div>
+
+          <div class="form-group" id="door_dim_e">
+            <%= d.label :e %>
+            <%= d.text_field :dim_e %>
+          </div>
+
+          <div class="form-group" id="door_dim_f">
+            <%= d.label :f %>
+            <%= d.text_field :dim_f %>
+          </div>
+
+          <div class="form-group" id="door_dim_g">
+            <%= d.label :g %>
+            <%= d.text_field :dim_g %>
+          </div>
+
+          <div class="form-group" id="door_dim_h">
+            <%= d.label :h %>
+            <%= d.text_field :dim_h %>
+          </div>
+
+          <div class="form-group" id="door_dim_i">
+            <%= d.label :i %>
+            <%= d.text_field :dim_i %>
+          </div>
+
+          <div class="form-group" id="door_dim_j">
+            <%= d.label :j %>
+            <%= d.text_field :dim_j %>
+          </div>
+
+          <div class="form-group" id="door_dim_k">
+            <%= d.label :k %>
+            <%= d.text_field :dim_k %>
+          </div>
+          </div>
+
+
+          <div class="form-group"> 
+            <%= d.label :other_comments %>
+            <%= d.text_area :other_comments, class: "form-control" %>
+          </div>
+            <% end %>
+
+
+
+
+
+        <div class="form-group">
+          <%= f.submit class: "btn btn-primary" %>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+
+</div>
+
+
+
+
+
+<% end %>

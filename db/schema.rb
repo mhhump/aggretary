@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150216211209) do
+ActiveRecord::Schema.define(version: 20150316144109) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
@@ -53,10 +53,30 @@ ActiveRecord::Schema.define(version: 20150216211209) do
     t.string   "other_comments"
     t.integer  "project_id"
     t.string   "existing_frame"
+    t.integer  "opening_id"
   end
 
+  add_index "doors", ["opening_id"], name: "index_doors_on_opening_id"
   add_index "doors", ["project_id"], name: "index_doors_on_project_id"
   add_index "doors", ["user_id"], name: "index_doors_on_user_id"
+
+  create_table "openings", force: true do |t|
+    t.integer  "number"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+    t.integer  "project_id"
+    t.string   "swing"
+    t.string   "fire_rating"
+    t.string   "location_1"
+    t.string   "location_2"
+    t.decimal  "width"
+    t.decimal  "height"
+    t.string   "location"
+  end
+
+  add_index "openings", ["project_id"], name: "index_openings_on_project_id"
+  add_index "openings", ["user_id"], name: "index_openings_on_user_id"
 
   create_table "pins", force: true do |t|
     t.string   "description"

@@ -1,4 +1,4 @@
-<%= link_to 'Back', project_path(@project) %>
+<%= link_to 'Back', project_opening_path(@project, @opening) %>
 
 <div class="row">
   <div class="col-md-offset-2 col-md-8">
@@ -17,10 +17,10 @@
 
 
         
-        <p><strong><%= @door.project.name if @door.project %></strong></p>
+        <p><strong><%= @door.opening.name if @door.opening %></strong></p>
 
         
-		      <%= link_to edit_project_door_path(@project, @door) do %>
+		      <%= link_to edit_project_opening_door_path(@project, @opening, @door) do %>
 		        <span class="glyphicon glyphicon-edit"></span>
 		        Edit
 		      <% end %>

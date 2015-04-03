@@ -1,0 +1,30 @@
+<%= link_to 'Back', project_path(@project) %>
+
+<div class="row">
+  <div class="col-md-offset-2 col-md-8">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <p><strong><%= @opening.number %></strong></p>
+        <ol>
+            <p><strong>Location:</strong>
+            <%= @opening.location.capitalize %></p>
+            <p><strong>Swing:</strong>
+            <%= @opening.swing.upcase %></p>
+
+
+
+
+        
+        <p><strong><%= @opening.project.name if @opening.project %></strong></p>
+
+        
+		      <%= link_to edit_project_opening_path(@project, @opening) do %>
+		        <span class="glyphicon glyphicon-edit"></span>
+		        Edit
+		      <% end %>
+   
+
+      </div>
+    </div>
+  </div>
+</div>

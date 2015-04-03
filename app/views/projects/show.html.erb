@@ -1,29 +1,67 @@
 <%= render 'pages/home' unless user_signed_in? %>
 
-<p><%= link_to 'Back', projects_path %><p>
-<p><%= link_to 'Add Door', new_project_door_path(@project, @door) %></p>
+<p><%= link_to 'Back to Projects', projects_path %><p>
 
+   
 
-
-<div id="doors" class="transitions-enabled">
-  <% @doors.each do |door| %>
-    <div class="box panel panel-default">
-      <%= link_to project_door_path(@project, door) do %>
-      <%= door.name %>
-      <% end %>
-      <div class="panel-body">
-        <div class="actions">
-          <%= link_to edit_project_door_path(@project, door) do %>
-            <span class="glyphicon glyphicon-edit"></span>
-            Edit
-          <% end %>
-          <%= link_to project_door_path(@project, door), method: :delete, data: { confirm: 'Are you sure?' } do %>
-            <span class="glyphicon glyphicon-trash"></span>
-            Delete
-          <% end %>
-        </div>
-        
-      </div>
-    </div>
-  <% end %>
+<div class="box panel panel-default">
+  <div class="panel-heading"><strong><%= @project.name %></strong></div>
+  <div class="panel-body">
+    <p>panel body</p>
+  </div>
 </div>
+  
+
+  <div class="table-condensed">
+  <table class="table table-striped">
+    <div id="openings" class="transitions-enabled">
+      <tr>
+        <th>Opening</th>
+        <th>Location</th>
+        <th>Swing</th>
+        <th>Rating</th>
+        <th>Door Material</th>
+        <th>Lite Kit</th>
+      </tr>
+      <% @openings.each do |opening| %>
+
+        <tr>
+          <td><%= link_to project_opening_path(@project, opening) do %>
+              <%= opening.number %>
+            <% end %>
+          </td>
+          <td><%= opening.location %></td>
+          <td><%= opening.swing %></td>
+          <td><%= opening.fire_rating %></td>
+
+          <% opening.doors.each do |door| %>
+            <td><%= door.door_material %></td>
+            <td><%= door.lite_kit %></td>
+          <% end %>
+          
+          
+        <div class="actions">
+          <td>
+            <%= link_to edit_project_opening_path(@project, opening) do %>
+              <span class="glyphicon glyphicon-edit"></span>
+              Edit
+            <% end %>
+          </td>
+          <td>
+            <%= link_to project_opening_path(@project, opening), method: :delete, data: { confirm: 'Are you sure?' } do %>
+              <span class="glyphicon glyphicon-trash"></span>
+              Delete
+            <% end %>
+          </td>
+        </div>
+        </tr>
+        
+      <% end %>
+    </div>
+ </table>
+</div>
+
+ 
+
+
+<p><%= link_to 'Add Opening', new_project_opening_path(@project, @opening) %></p>

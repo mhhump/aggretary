@@ -6,13 +6,15 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :projects
-  has_many :doors, through: :projects
+  has_many :openings, through: :projects
+  has_many :doors, through: :openings
   has_many :pins
   has_many :products
   
 
   accepts_nested_attributes_for :doors, :allow_destroy => true
   accepts_nested_attributes_for :projects, :allow_destroy => true
+  accepts_nested_attributes_for :openings, :allow_destroy => true
 
   validates :name, presence: true
 end

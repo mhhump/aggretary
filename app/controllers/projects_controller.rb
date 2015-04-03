@@ -11,11 +11,13 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
+    @openings = @project.openings
     @doors = @project.doors
   end
 
   def new
     @project = current_user.projects.build
+    @project.openings.build
     @project.doors.build
   end
 
@@ -59,6 +61,6 @@ class ProjectsController < ApplicationController
     end
 
     def project_params
-      params.require(:project).permit(:id, :name, doors_attributes: [ :id, :_destroy, :project_id, :name, :image, :measure_from, :frame_material, :door_material, :location, :swing, :fire_rating, :lock_prep, :deadbolt_prep, :lite_kit, :louver, :dim_a, :dim_b, :dim_c, :dim_d, :dim_d, :dim_e, :dim_f, :dim_g, :dim_h, :dim_i, :dim_j, :dim_k, :other_comments, :species, :existing_frame ])
+      params.require(:project).permit(:id, :name, openings_attributes: [ :id, :_destroy, :project_id, :number ], doors_attributes: [ :id, :_destroy, :project_id, :name, :image, :measure_from, :frame_material, :door_material, :location, :swing, :fire_rating, :lock_prep, :deadbolt_prep, :lite_kit, :louver, :dim_a, :dim_b, :dim_c, :dim_d, :dim_d, :dim_e, :dim_f, :dim_g, :dim_h, :dim_i, :dim_j, :dim_k, :other_comments, :species, :existing_frame ])
     end
 end

@@ -1,7 +1,10 @@
 Aggretary::Application.routes.draw do
 
+
   resources :projects do
-    resources :doors
+    resources :openings do
+      resources :doors
+    end
   end
 
   resources :categories
